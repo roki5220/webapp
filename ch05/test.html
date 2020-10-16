@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #index {
+            font-size: 30px;
+        }
+        #color1 {
+            height: 40px; background-color: cadetblue; font-size: 20px;
+        }
+        #color2 {
+            width: 150px; height: 30px; background-color: aquamarine;
+        }
+        #color3 {
+            width: 550px; height: 30px; background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h3 id='index' align='center'>회원 가입</h3>
+    <table border='1' align='center'>
+        <tr>
+            <th colspan='2' id='color1'>회원 기본 정보</th>
+        </tr>
+        <tr>
+            <th id='color2'>아이디</th>
+            <td id='color3'>
+                <input type="text" name="ID" size="12">4~12자의 영문 대소문자와 숫자로만 입력
+            </td>
+        </tr>
+        <tr>
+            <th id='color2'>비밀번호</th>
+            <td id='color3'>
+                <input type="password" name="pwd" size="12">4~12자의 영문 대소문자와 숫자로만 입력
+            </td>
+        </tr>
+        <tr>
+            <th id='color2'>비밀번호 확인</th>
+            <td  id='color3'>
+            <input type="password" name="pwd" size="12">
+            </td>
+        </tr>
+        <tr>
+            <th id='color2'>메일주소</th>
+            <td id='color3'>
+            <input type="password" name="pwd" size="18"> 예)id@domain.com
+            </td>
+        </tr>
+        <tr>
+            <th colspan='2' id='color1'>개인 신상 정보</th>
+        </tr>
+        <tr>
+            <th id='color2'> &nbsp;주민등록번호&nbsp; </th>
+            <td>
+            <input type="text" name="text" size="6"> - <input type="password" name="text" size="6"> 예)123456-1234567
+            </td>
+        </tr>
+        <tr>
+            <th id='color2'>생일</th>
+            <td>
+            <input type="date" name="bithday" size="15">
+            </td>
+        </tr>
+        <tr>
+            <th id='color2'>성별</th>
+            <td>
+            남자<input type="radio" name="sex" value="남자">
+            여자<input type="radio" name="sex" value="여자">
+            </td>
+        </tr>
+        <tr>
+            <th id='color2'>관심분야</th>
+            <td>
+            <input type="checkbox" name="hub" value="컴퓨터">컴퓨터
+            <input type="checkbox" name="hub" value="인터넷">인터넷
+            <input type="checkbox" name="hub" value="여행">여행
+            <input type="checkbox" name="hub" value="영화감상">영화감상
+            <input type="checkbox" name="hub" value="음악감상">음악감상
+            </td>
+        </tr>
+        <tr>
+            <th id='color2'>자기소개</th>
+            <td>
+                <textarea cols="80" rows="10" spellcheck="true"></textarea>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <form align='center'>
+        <input type="submit" value="회원 가입">
+        <input type="reset" value="다시 입력">
+    </form>
+</body>
+</html>
