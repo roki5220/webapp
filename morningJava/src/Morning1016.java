@@ -23,6 +23,7 @@ public class Morning1016 {
             for(int i=0; i<5; i++) {
                 System.out.printf("%3d", regAry[i][j]);
             }
+            
             System.out.println();
         }
     }
