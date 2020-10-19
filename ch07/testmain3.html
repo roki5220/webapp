@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            border: 1px dotted red;
+        }
+
+        header {
+            position: static;
+            width: 100%;
+            height: 50px;
+            background-color: orange;
+        }
+
+        nav {
+            position: static;
+            width: 90px;
+            height: 150px;
+        }
+
+        section {
+            position: absolute;
+            left: 105px;
+            top: 63px;
+            width: 80%;
+            height: 150px;
+        }
+
+        footer {
+            position: static;
+            height: 50px;
+        }
+
+        li {
+            display: inline;
+        }
+
+        nav>li {
+            list-style-type: none;
+        }
+        nav>ul {
+            position: sticky;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <header>
+            <ul>
+                <li><a href="../ch07/testmain.html" targer="_self">1.menu</a></li>
+                <li><a href="../ch07/testmain2.html" targer="_self">2.menu</a></li>
+                <li><a href="../ch07/testmain3.html" targer="_self">3.menu</a></li>
+            </ul>
+        </header>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Intro</li>
+                <li>News</li>
+                <li>Article</li>
+                <li>Aside</li>
+            </ul>
+        </nav>
+        <section>
+            When you set the width and height properties of an element with CSS, you just set the width and height of
+            the content area. To calculate the full size of an element, you must also add padding, borders and margins.
+        </section>
+        <footer>Since 1980...</footer>
+    </div>
+</body>
+
+</html>
