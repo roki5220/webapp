@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td, th { border-bottom: 2px solid black;}
+        #tb1 {
+            border: 3px solid red;
+            background-color: yellow;
+            border-collapse: separate;
+            table-layout: auto;
+            border-spacing: 20px 10px;
+        }
+        #tb2 {
+            border: 2px solid blue;
+            background-color: cadetblue;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+    </style>
+</head>
+<body>
+    <table style id="tb1" width="350px">
+        <tr>
+            <th>table border-collapse</th>
+            <td>separate 적용</td>
+        </tr>
+    </table>
+    <p></p>
+    <table style id="tb2" width="350px">
+        <tr>
+            <th>table border-collapse</th>
+            <td>collapse 적용</td>
+        </tr>
+    </table> 
+</body>
+</html>
