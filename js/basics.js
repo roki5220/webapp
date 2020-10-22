@@ -46,6 +46,8 @@ for (str of strAry) {
 }
 
 let days = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+
+// 1.
 let div = document.getElementById('show');
 let ulTag = document.createElement('ul');
 for (d of days) {
@@ -53,7 +55,14 @@ for (d of days) {
 let liTag = document.createElement('li');
 liTag.innerHTML = d;
 ulTag.append(liTag);
-
 }
-
 div.append(ulTag);
+
+// 2.
+// <ul><li>일요일</li><li>월요일</li>....</ul>
+let ulT = '<ul>';
+for(let i=0; i<days.length;i++) {
+    ulT += '<li>' + days[i] + '</li>';
+}
+ulT += '</ul>';
+document.write(ulT);
