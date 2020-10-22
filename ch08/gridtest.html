@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .item1 {
+            grid-area: header;
+        }
+
+        .item2 {
+            grid-area: menu;
+        }
+
+        .item3 {
+            grid-area: main;
+        }
+
+        .item4 {
+            grid-area: right;
+        }
+        .item5 {
+            grid-area: sub2;
+        }
+        .item6 {
+            grid-area: footer;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+                'header header header header header'
+                'sub2 sub2 sub2 sub2 sub2'
+                'menu main main main right'
+                'footer footer footer footer footer';
+            grid-gap: 10px;
+            background-color: hide;
+            padding: 8px;
+            grid-template-rows: 80px 50px 300px 60px;
+            grid-template-columns: 150px auto;
+        }
+
+        .grid-container>div {
+            background-color: rgb(137, 255, 137);
+            text-align: center;
+            padding: 0px;
+            font-size: 30px;
+            color: lightseagreen;
+              
+        }
+        div>ul {
+            margin: 20%;
+            text-align:left;
+            font-size: 20px;
+            line-height: 80px;
+            padding-left: 10%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Grid Layout</h1>
+
+    <p>This grid layout contains six columns and three rows:</p>
+
+    <div class="grid-container">
+        <div class="item1"> header </div>
+        <div class="item2">
+            <ul>
+                <li>HOME</li>
+                <li>HOME2</li>
+                <li>HOME3</li>
+            </ul>
+        </div>
+        <div class="item3"> main </div>
+        <div class="item4"> right </div>
+        <div class="item5"> sub </div>
+        <div class="item6"> footer </div>
+    </div>
+
+</body>
+
+</html>
