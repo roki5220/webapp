@@ -16,6 +16,8 @@ let multiFunc = function(v1, v2) {
     return num1 * num2;
 }
 
+let newFunc = multiFunc;
+
 console.log(multiFunc());
 
 function callBackFunc(func, val1) {
