@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>DOM Tutorial</title>
+  </head>
+
+  <body>
+    <h1>DOM Lesson one</h1>
+    <p>Hello world!</p>
+    <script>
+        console.log(document.body.childNodes[1].childNodes[0].nodeValue = 'Dom Lesson Two');
+        console.log(document.body.childNodes);
+        console.log(document.body.childNodes[3].childNodes[0].nodeValue = 'GoodMorinig World');
+
+        let div = document.createElement('div');
+        div.className = 'row'
+        div.setAttribute('id','row');
+
+        let text = document.createTextNode('Hello, world')
+        div.append(text);
+        console.log(div);
+
+        let $body = document.getElementsByTagName('p');
+        $body[0].before(div);
+
+        let per = {
+            이름: "홍길동",
+            나이: 18,
+            직업: "학생"
+        }
+
+        let table = document.createElement('table');
+        table.setAttribute('border', 1);
+        
+        let tr = document.createElement('tr');
+        for (field in per){
+            let th = document.createElement('th');
+            let text = document.createTextNode(field);
+            th.append(text);
+            tr.append(th);
+        }
+        let tr1 = document.createElement('tr');
+        for (field in per){
+            let td = document.createElement('td');
+            let text = document.createTextNode(per[field]);
+            td.append(text);
+            tr1.append(td);
+        }
+
+        table.append(tr,tr1);
+        div.append(table);
+    </script>
+  </body>
+
+</html>

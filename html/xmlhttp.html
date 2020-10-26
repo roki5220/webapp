@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xmlhttp.html</title>
+</head>
+
+<body>
+    <div id='show'></div>
+    <script>
+        console.log('first');
+        let xhtp = new XMLHttpRequest();
+        xhtp.onreadystatechange = function () {
+            // console.log(xhtp.readyState,xhtp.status,xhtp.responseText);
+            if (xhtp.readyState == 4 && xhtp.status == 200) {
+                console.log('second');
+                let data = JSON.parse(xhtp.responseText);
+                console.log(data);
+                for (let i = 0; i < data.lengrh; i++) {
+                    // consolelog(data[i].id, data[i].first_name, data[i].last_name);
+                }
+
+                myFun(data);
+            }
+        }
+        xhtp.open('get', 'MOCK_DATA.json');
+        xhtp.send();
+
+        console.log('last');
+
+
+
+        let myFun = function (data) {
+
+            let fieldArr = ['id', 'first_name', 'last_name', 'gender', 'email'];
+
+            let persons = data;
+            let table, th, tr, td, text;
+            table = document.createElement('table');
+            table.border = '1';
+            th = document.createElement('th');
+            tr = document.createElement('tr');
+            text = document.createTextNode(fieldArr[field]);
+            th.append(text);
+            tr.append(th);
+
+            for (person of persons) {
+                tr = document.createElement('tr');
+                for (arr of fieldArr) {
+                    for (field in person) {
+                        if (arr == field) {
+                        text = document.createTextNode(person[field]);
+                        td = document.createElement('td');
+                        td.append(text);
+                        tr.append(td);
+                        }
+                    }
+                }
+
+                table.append(tr);
+            }
+
+
+
+            let div = document.getElementById('show');
+            div.append(table);
+            console.log(table);
+
+        }
+    </script>
+</body>
+
+</html>
