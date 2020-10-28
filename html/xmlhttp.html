@@ -10,29 +10,34 @@
 <body>
     <div id='show'></div>
     <script>
-        console.log('first');
         let xhtp = new XMLHttpRequest();
         xhtp.onreadystatechange = function () {
             // console.log(xhtp.readyState,xhtp.status,xhtp.responseText);
             if (xhtp.readyState == 4 && xhtp.status == 200) {
-                console.log('second');
-                let data = JSON.parse(xhtp.responseText);
-                console.log(data);
-                for (let i = 0; i < data.lengrh; i++) {
-                    // consolelog(data[i].id, data[i].first_name, data[i].last_name);
-                }
+                // let data = JSON.parse(xhtp.responseText);
+                // console.log(data);
+                // for (let i = 0; i < data.lengrh; i++) {
+                // consolelog(data[i].id, data[i].first_name, data[i].last_name);
+                // }
 
-                myFun(data);
+                // loadJson(data);
+
+                let data = (xhtp.responseXML);
+                data = data.getElementsByTagName('record');
+                // console.log('id:' + data[0].children[0].firstChild.nodeValue);
+                // console.log('fn:' + data[0].children[1].firstChild.nodeValue);
+                // console.log('ln:' + data[0].children[2].innerHTML);
+
+
+                loadXml(data);
             }
         }
-        xhtp.open('get', 'MOCK_DATA.json');
+        // xhtp.open('get', 'MOCK_DATA.json');
+        xhtp.open('get', 'dataset.xml');
+
         xhtp.send();
 
-        console.log('last');
-
-
-
-        let myFun = function (data) {
+        function loadJson(data) {
 
             let fieldArr = ['id', 'first_name', 'last_name', 'gender', 'email'];
 
@@ -40,34 +45,66 @@
             let table, th, tr, td, text;
             table = document.createElement('table');
             table.border = '1';
-            th = document.createElement('th');
-            tr = document.createElement('tr');
-            text = document.createTextNode(fieldArr[field]);
-            th.append(text);
-            tr.append(th);
+
+            for (arr of fieldArr) {
+                th = document.createElement('th');
+                tr = document.createElement('tr');
+                text = document.createTextNode(arr);
+                th.append(text);
+                table.append(th);
+            }
 
             for (person of persons) {
                 tr = document.createElement('tr');
+                tr.setAttribute('id', person['id']);
                 for (arr of fieldArr) {
                     for (field in person) {
                         if (arr == field) {
-                        text = document.createTextNode(person[field]);
-                        td = document.createElement('td');
-                        td.append(text);
-                        tr.append(td);
+                            text = document.createTextNode(person[field]);
+                            td = document.createElement('td');
+                            td.append(text);
+                            tr.append(td);
+                        }
+                    }
+                    table.append(tr);
+                }
+                let div = document.getElementById('show');
+                div.append(table);
+                console.log(table);
+            }
+        }
+
+        function loadXml(data) {
+
+            let fieldArr = ['id', 'first_name', 'last_name', 'gender', 'email'];
+            let table = document.createElement('table');
+            table.border = '1';
+            let td, tr, text;
+
+            for (let i = 0; i < fieldArr.length; i++) {
+                td = document.createElement('th');
+                tr = document.createElement('tr');
+                text = document.createTextNode(fieldArr[i]);
+                td.append(text);
+                table.append(td);
+            }
+            for (let i = 0; i < data.length; i++) {
+                tr = document.createElement('tr');
+                for (let k=0; k<fieldArr.length; k++) {
+                    for (let j = 0; j < data[i].children.length; j++) {
+                        if (fieldArr[k] == data[i].children[j].tagName) {
+                            text = document.createTextNode(data[i].children[j].innerHTML);
+                            td = document.createElement('td');
+                            td.append(text);
+                            tr.append(td);
                         }
                     }
                 }
-
                 table.append(tr);
             }
-
-
-
             let div = document.getElementById('show');
             div.append(table);
             console.log(table);
-
         }
     </script>
 </body>
